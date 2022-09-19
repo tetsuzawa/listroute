@@ -13,6 +13,9 @@ on:
           - major
           - mainor
           - patch
+  push:
+    branches:
+      - main
 
 jobs:
   release:
