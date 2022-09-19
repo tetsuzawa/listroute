@@ -1,12 +1,6 @@
 name: lint
 
-on:
-  pull_request:
-    paths:
-      - "**.go"
-      - "**.go.mod"
-      - "**.go.sum"
-
+on: pull_request
 
 jobs:
 
