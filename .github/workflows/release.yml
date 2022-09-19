@@ -7,6 +7,12 @@ on:
           Which number to increment in the semantic versioning.
           Set 'major', 'minor' or 'patch'.
         required: true
+        type: choice
+        default: patch
+        options:
+          - major
+          - mainor
+          - patch
 
 jobs:
   release:
