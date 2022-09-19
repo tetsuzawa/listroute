@@ -44,7 +44,7 @@ jobs:
         uses: kyoh86/git-vertag-action@v1.1
         with:
           # method: "major", "minor" or "patch" to update tag with semver
-          method: "${{ github.event.inputs.method }}"
+          method: "${{ github.event.inputs.method || 'patch' }}"
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
