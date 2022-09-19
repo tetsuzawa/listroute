@@ -12,7 +12,7 @@ import (
 	"golang.org/x/tools/go/ast/inspector"
 )
 
-const doc = "listroute lists all routes"
+const doc = "listroute displays all routes in the project files."
 
 var Analyzer = &analysis.Analyzer{
 	Name: "listroute",
@@ -32,10 +32,11 @@ func Contains[T comparable](target T, list []T) bool {
 	return false
 }
 
-var matcherFunctionsRaw string
+var matcherFunctionsRaw string // -listroute.matcherFunctions="..."
 
 func init() {
-	Analyzer.Flags.StringVar(&matcherFunctionsRaw, "matcherFunctions", "GET,POST,PUT,DELETE,PATCH,Static,File,Group", "Matcher functions. You can specify multiple by separating them with `,`.")
+	Analyzer.Flags.StringVar(&matcherFunctionsRaw, "matcherFunctions", "GET,POST,PUT,DELETE,PATCH,Static,File,Group", "Matcher functions. You can specify multiple by separating them with ','.")
+	log.Println(Analyzer.Flags.Parsed())
 }
 
 func run(pass *analysis.Pass) (any, error) {
