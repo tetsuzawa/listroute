@@ -2,6 +2,12 @@
 
 listroute displays all routes in the project files.
 
+
+## vs grep
+
+You can do the same thing with grep, but you need to write complex regular expressions and shell scripts.
+
+
 ## Example
 
 ```go
@@ -31,6 +37,14 @@ func DELETEHandler(c echo.Context) error { return nil }
 func PATCHHandler(c echo.Context) error  { return nil }
 ```
 
+### run
+
+```
+go vet -vettool=`which listroute` ./...
+```
+
+(When using go vet, you must specify the full path to the tool)
+
 ### output
 
 ```
@@ -43,27 +57,14 @@ func PATCHHandler(c echo.Context) error  { return nil }
 ./main.go:16:2: e.File("/bar", "/bar.txt")
 ```
 
+
 # Install
 
 ```
 go install github.com/tetsuzawa/listroute/cmd/listroute@latest
 ```
 
-# Usage
-
-## bash
-
-```
-go vet -vettool=`which listroute` ./...
-```
-
-## fish
-
-```
-go vet -vettool=(which listroute) ./...
-```
-
-## options
+# Options
 
 ```
 `-listroute.matcherFunctions <list of functions>`
@@ -71,6 +72,7 @@ go vet -vettool=(which listroute) ./...
 
 This option is used to explicitly specify a matcher function.
 Multiple functions may be specified, separated by commas (,).
+Function names are case-sensitive.
 By default, the functions in [labstack/echo/v4](https://github.com/labstack/echo) is registered.
 
 Example
