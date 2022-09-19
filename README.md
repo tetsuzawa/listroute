@@ -60,8 +60,20 @@ go vet -vettool=`which listroute` ./...
 
 # Install
 
+Source
+
 ```
 go install github.com/tetsuzawa/listroute/cmd/listroute@latest
+```
+
+Binary releases
+
+```
+# see releases
+curl -L -o listroute.tar.gz https://github.com/tetsuzawa/listroute/releases/download/vX.X.X/listroute_X.X.X_linux_amd64.tar.gz
+tar xvf listroute.tar.gz
+sudo install listroute /usr/local/bin/
+
 ```
 
 # Options
