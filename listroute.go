@@ -36,7 +36,6 @@ var matcherFunctionsRaw string // -listroute.matcherFunctions="..."
 
 func init() {
 	Analyzer.Flags.StringVar(&matcherFunctionsRaw, "matcherFunctions", "GET,POST,PUT,DELETE,PATCH,Static,File,Group", "Matcher functions. You can specify multiple by separating them with ','.")
-	log.Println(Analyzer.Flags.Parsed())
 }
 
 func run(pass *analysis.Pass) (any, error) {
