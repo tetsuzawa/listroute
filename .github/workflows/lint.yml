@@ -12,5 +12,5 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.49
+          version: v2.13.2
           args: --enable=golint,gosec,prealloc,gocognit
